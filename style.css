@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+}
+body{
+    color: white;
+    font-family: 'Play', sans-serif;
+    height: 300vh;
+    background-color: black;
+}
+/*Navbar bailangıç*/
+.navbar{
+    background-color: black;
+    height: 80px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.navbar-kapsayici{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 60px;
+}
+.logo{
+    font-size: 36px;
+    color: red;
+}
+.menu-liste{
+    display: flex;
+    list-style: none;
+    column-gap: 20px;
+    position: relative;
+    right: 100px;
+}
+.menu-liste li {
+  margin-right: -4px;
+  position: relative;
+  padding: 15px 30px;
+}
+.menu-liste li a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+  li a:hover{
+    color: red;
+  }
+.menu-liste .list-item ul {
+  padding: 0;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 150px;
+  box-shadow: none;
+  display: none;
+  visibility: hidden;
+}
+.menu-liste .list-item .menu-liste2 .alt-list-item { 
+  background: black; 
+  display: block; 
+  color: #fff;
+  height: 20px;
+  width: 120px;
+  right: 80px;
+  font-size: 14px;
+}
+.menu-liste .list-item .menu-liste2 .alt-list-item:hover { background: black; }
+.menu-liste .list-item:hover .menu-liste2 {
+  visibility: visible;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.kontrol{
+  display: flex;
+  align-items: center;
+}
+.toggle{
+  width: 40px;
+  background-color: white;
+  position: relative;
+  height: 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.toggle-icon{
+  color: gold;
+}
+.toggle-yuv{
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  right: 1px;
+}
+/*Navbar bitiş*/
+/*Sidebar Başlangıç*/
+.sidebar{
+  background-color: black;
+  color: white;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 180px;
+  align-items: center;
+  row-gap: 40px;
+  position: fixed;
+  top: 0px;
+  transform: translateX(-200px);
+  animation: sidebar 1.2s forwards ease-out;
+}
+@keyframes sidebar {
+  to{ 
+      transform: translateX(0);
+  }
+  
+}
+
+.sidebar i{
+  color: white;
+  font-size: 20px;
+}
+/*Sidebar Bitiş*/
+/*content başlangıç*/
+.alt-içerik{
+  margin-left: 70px;
+}
+.featured-class{
+  height: calc(100vh - 320px);
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 60px;
+  background-size: 100% 100%;
+  background: url(resimler/john-wick-4-the-cast-of-the-action-sequel_ynfy\ \(2\).jpg);
+}
+.içerik-resim{
+  width: 500px;
+  position: relative;
+  top: 60px;
+  left: 700px;
+}
+.içerik-açıklama{
+  border: 1px solid ;
+  width: 500px;
+
+  border-radius: 10px;
+  text-align: left;
+  position: relative;
+  background-color: rgb(255, 255, 255,0.2);
+  bottom: 300px;
+  padding: 20px;
+  margin: 30px 0px;
+}
+.içerik-buton{
+  position: relative;
+  bottom: 300px;
+  display: flex;
+  column-gap: 20px;
+}
+.içerik-buton button{
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  column-gap: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.içerik-buton .info-buton{
+  background-color: rgb(145, 142, 142,0.5);
+  color: white;
+}
+.play-buton a{
+  color: black;
+  text-decoration: none;
+}
+.info-buton a{
+  color: white;
+  text-decoration: none;
+}
+.film-liste-kapsayıcı{
+  margin-left: 70px;
+  margin-top: 40px;
+  overflow: hidden;
+  position: relative;
+}
+.film-list{
+  list-style: none;
+  padding: 0;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  transform: translateX(0);
+  transition: 0.8s all ease-in-out;
+}
+.film-item{
+  position: relative;
+}
+.film-item:hover .film-item-title{
+  opacity: 1;
+}
+.film-item:hover .film-item-img{
+  transform: scale(1.1);
+  opacity: 0.5;
+  margin:0 20px;
+}
+.film-item-img{
+  width: 290px;
+  height: 180px;
+  margin-top: 20px;
+  object-fit: cover;
+  transition: 0.6s all ease-in-out;
+}
+.film-item-title{
+  background-color: rgb(40, 40, 40,0.5);
+  padding: 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  opacity: 0;
+  transition: 0.6s all ease-in-out;
+}
+/*content bitiş*/
+/*oklar baslangıç*/
+.ok{
+  width: 100px;
+  display: flex;
+  font-size: 80px;
+  position: absolute;
+  right: 0;
+  top: 150px;
+  opacity: 0.5;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+}
+.ok:hover{
+  opacity: 1;
+  transform: scale(1.2);
+}
+.ok2{
+  width: 100px;
+  display: flex;
+  font-size: 80px;
+  position: absolute;
+  left: 0;
+  top: 150px;
+  opacity: 0.5;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+}
+.ok2:hover{
+  opacity: 1;
+  transform: scale(1.2);
+}
+/*olklar bitiş*/
+/*hakkımızda başlangıç*/
+.hakkimizda-1{
+  margin-right: 30px;
+  margin-left: 70px;
+  margin-top: 80px;
+  position: relative;
+  display: flex;
+  justify-content: end;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+}
+.hakkimizda-kapsayici p{
+  margin-left: 140px;
+  margin-right: 14px;
+  border: 1px solid white;
+  position: relative;
+  padding: 20px;
+  width: 500px;
+  bottom: 340px;
+  border-radius: 20px;
+}
+.hakkimizda-kapsayici img{
+  width: 600px;
+  top: 100px;
+  margin-right: 30px;
+  height: 400px;
+  object-fit: cover;
+  position: relative;
+  left: 53%;
+  background-size: 100% 100%;
+}
+/*hakkımızda bitiş*/
+/*iletişim başlangıç*/
+.iletisim-kapsayici iframe{
+  width: 600px;
+  position: relative;
+  left: 680px;
+  height: 400px;
+  bottom: 250px;
+}
+.iletisim-text{
+display: flex;
+justify-content: end;
+margin-bottom: 40px;
+border-bottom: 1px solid rgb(255, 255, 255,0.5);
+}
+.adres-tanitim{
+  font-size: 18px;
+  position: relative;
+  left: 50px;
+  top: 80px;
+  width: 500px;
+  margin-left: 70px;
+}
+.iletisim-kapsayici{
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 50px;
+}
+/*iletişim bitiş*/
+/*footer başlangıç*/
+.footer{
+  height: 200px;
+  margin-top: 120px;
+  margin-left: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-top: 1px solid white;
+}
+.sosyal{
+  display: flex;
+  font-size: 36px;
+  column-gap: 10px;
+  position: relative;
+  right: 300px;
+  top: 25px;
+}
+.sosyal a{
+  color: white;
+  transition: all 0.3s ease-in;
+}
+.sosyal a:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.sosyal p{
+  font-size: 20px;
+  display: flex;
+  position: relative;
+  left: 200px;
+  bottom: 40px;
+}
+.adres{
+  position: relative;
+  right: 180px;
+}
+.alt-menü li{
+  list-style: none;
+}
+.alt-menü a{
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+  font-size: 20px;
+}
+.alt-menü a:hover{
+  transform: scale(1.2);
+}
+.yukari-kapsayici{
+  bottom: 120px;
+  position: absolute;
+  right: 100px;
+}
+.yukari{
+  font-size: 50px;
+  opacity: 0.5;
+  display: none;
+  position: fixed;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: gray;
+  border: 1px solid gray;
+}
+.yukari:hover{
+  opacity: 1;
+}
+.goster{
+  display: block;
+
+}
+.kaybol{
+  display: none;
+}
+
+/*footer bitiş*/
+/*Tanıtım Başlangıç*/
+.tanitim-kapsayici{
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 100px;
+}
+.tanitim-kapsayici img{
+  border: 1px solid white;
+  height: 300px;
+  position: relative;
+  left: 155px;
+}
+.oynat{
+  position: relative;
+  font-size: 38px;
+  color: white;
+  left: 15px;
+  transition: all 0.4s ease-in;
+  cursor: pointer;
+}
+hr{
+  opacity: 0.4;
+}
+.oynat:hover{
+ transform: scale(1.2);
+}
+.oynat:active{
+  color: white;
+}
+.tanitim-alt{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 150px;
+  margin-right: 200px;
+}
+.tanitim-text{
+  position: relative;
+  margin-left: 30px;
+  margin-top: 120px;
+  bottom: 90px;
+  font-size: 15px;
+  line-height: 30px;
+  width: 600px;
+  left: 150px;
+  letter-spacing: 1px;
+}
+.tanitim-text p{
+  color: red;
+}
+.tanitim-text a{
+  color: white;
+  text-decoration: none;
+}
+.tanitim-text a:hover{
+  color: dodgerblue;
+}
+.tanitim-buton{
+display: flex;
+flex-direction: row;
+position: relative;
+top: 120px;
+right: 450px;
+cursor: pointer;
+}
+.tanitim-buton button{
+  padding: 6px;
+  margin: 6px;
+  transition: all 0.5s ease-in;
+}
+.tanitim-buton button:hover{
+  background-color: red;
+  border: none;
+  transform: scale(1.1);
+}
+.tanitim-ozet-kapsayici h2{
+  position: relative;
+  left: 50px;
+  bottom: 70px;
+}
+.tanitim-ozet-kapsayici{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin-left: 180px;
+  margin-right: 180px;
+  margin-top: 80px;
+}
+.tanitim-buton button a{
+  color: black;
+  text-decoration: none;
+}
+/*Tanıtım Bitiş*/
+
